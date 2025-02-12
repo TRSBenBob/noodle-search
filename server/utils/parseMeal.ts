@@ -1,7 +1,7 @@
-import type { ApiMeal } from '~/server/types'
+import type { ApiMeal, Meal } from '~/server/types'
 
 function parseInstructions(instructions: string) {
-  return instructions.split('\r\n')
+  return instructions?.split('\r\n')
     .map(insruction => insruction.trim())
     .filter(Boolean)
 }
@@ -16,7 +16,7 @@ export default function parseMeal(meal: ApiMeal) {
     if (!ingredient)
       break
 
-    const measure = meal[`strMeasure${i}`]?.trim()
+    const measure = meal[`strMeasure${i}`]?.trim() ?? null
 
     ingredients.push({ name: ingredient, measure })
   }
@@ -26,7 +26,7 @@ export default function parseMeal(meal: ApiMeal) {
     name: meal.strMeal,
     category: meal.strCategory,
     area: meal.strArea,
-    tags: meal.strTags?.split(',').filter(Boolean),
+    tags: meal.strTags?.split(',').filter(Boolean) ?? [],
 
     thumb: meal.strMealThumb,
     youtube: meal.strYoutube,
@@ -34,5 +34,5 @@ export default function parseMeal(meal: ApiMeal) {
 
     ingredients,
     instructions: parseInstructions(meal.strInstructions),
-  }
+  } satisfies Meal
 }

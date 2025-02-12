@@ -7,6 +7,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxtjs/tailwindcss',
+
+    '@nuxt/test-utils/module',
   ],
 
   eslint: {

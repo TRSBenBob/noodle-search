@@ -15,3 +15,19 @@ export interface ApiMeal {
   strCreativeCommonsConfirmed: string | null
   dateModified: string | null
 }
+
+export interface Meal {
+  id: string
+  name: string
+  category: string
+  area: string
+  tags: string[]
+  thumb: string | null
+  youtube: string | null
+  source: string | null
+  ingredients: {
+    name: string
+    measure: string | null
+  }[]
+  instructions: string[]
+}
