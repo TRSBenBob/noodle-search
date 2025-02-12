@@ -6,8 +6,14 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/eslint',
+
+    '@nuxt/fonts',
     '@nuxtjs/tailwindcss',
-    '@formkit/auto-animate/nuxt',
+
+    '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
+
+    '@nuxt/icon',
 
     '@nuxt/test-utils/module',
   ],
