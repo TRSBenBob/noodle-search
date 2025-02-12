@@ -3,21 +3,26 @@ const mealStore = useMealStore()
 </script>
 
 <template>
-  <div class="grid place-items-center self-end">
+  <div class="sticky top-0 grid place-items-center self-end z-10 bg-base-200 p-4">
     <div class="text-center w-full max-w-md flex flex-col gap-4">
       <h1 class="text-5xl font-bold">
         <HeroLogo />
       </h1>
 
-      <form class="join" @submit.prevent="mealStore.updateMeals">
-        <label class="input input-bordered w-full max-w-sm join-item flex items-center gap-2">
-          <input v-model="mealStore.search" type="search" class="grow" placeholder="What are you hungry for?">
+      <form class="sm:join" @submit.prevent="mealStore.updateMeals">
+        <label class="input input-bordered w-full join-item flex items-center gap-2">
+          <input
+            v-model="mealStore.search"
+            type="search"
+            class="grow"
+            placeholder="What are you hungry for?"
+          >
 
-          <span v-if="mealStore.search" class="badge badge-neutral px-2 cursor-pointer" @click="mealStore.search = ''">&times;</span>
+          <Icon v-if="mealStore.search" name="hugeicons:cancel-01" size="20" class="cursor-pointer" @click="mealStore.search = ''" />
         </label>
 
-        <button type="submit" class="btn btn-primary join-item" :disabled="mealStore.loading || !mealStore.search">
-          Yum
+        <button type="submit" class="hidden sm:btn sm:btn-primary join-item" :disabled="mealStore.loading || !mealStore.search">
+          <Icon name="hugeicons:search-01" size="20" />
         </button>
       </form>
 
@@ -29,3 +34,9 @@ const mealStore = useMealStore()
     </div>
   </div>
 </template>
+
+<style scoped>
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+</style>

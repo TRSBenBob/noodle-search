@@ -3,12 +3,12 @@
     <Icon name="hugeicons:noodles" />
 
     <span>
-      <span class="text-blue-500">n</span>
-      <span class="text-red-500">o</span>
-      <span class="text-yellow-500">o</span>
-      <span class="text-blue-500">d</span>
-      <span class="text-green-500">l</span>
-      <span class="text-red-500">e</span>
+      <span class="text-primary">n</span>
+      <span class="text-secondary">o</span>
+      <span class="text-accent">o</span>
+      <span class="text-primary">d</span>
+      <span class="text-error">l</span>
+      <span class="text-secondary">e</span>
     </span>
   </span>
 </template>

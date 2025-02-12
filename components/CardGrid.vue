@@ -1,5 +1,11 @@
 <template>
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-start w-full max-w-screen-lg mx-auto">
+  <div class="CardGrid p-8 grid gap-8 mx-auto w-full">
     <slot />
   </div>
 </template>
+
+<style scoped>
+.CardGrid {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+</style>

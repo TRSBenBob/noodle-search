@@ -4,16 +4,14 @@ const mealStore = useMealStore()
 
 <template>
   <div
-    class="grid gap-8 h-screen bg-base-200 transition-[grid-template-rows] duration-500 ease-out overflow-hidden p-4"
+    class="grid h-screen w-screen bg-base-200 transition-[grid-template-rows] duration-500 ease-out overflow-y-auto"
     :class="mealStore.meals.length ? 'grid-rows-[0fr,1fr]' : 'grid-rows-[1fr,1fr]'"
   >
     <Hero />
 
-    <div class="flex self-start h-full overflow-auto w-full">
+    <div class="flex self-start justify-center">
       <template v-if="mealStore.loading">
-        <CardGrid>
-          <MealCardSkeleton v-for="_ in 3" :key="_" />
-        </CardGrid>
+        <span class="loading loading-dots loading-lg" />
       </template>
 
       <template v-else>
