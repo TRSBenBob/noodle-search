@@ -1,4 +1,4 @@
-import type { ApiMeal } from '~/server/types'
+import type { ApiMeal } from '~/types'
 import parseMeal from '~/server/utils/parseMeal'
 
 interface ApiResponse {

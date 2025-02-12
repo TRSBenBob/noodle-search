@@ -1,4 +1,4 @@
-import type { ApiMeal, Meal } from '~/server/types'
+import type { ApiMeal, Meal } from '~/types'
 
 function parseInstructions(instructions: string) {
   return instructions?.split('\r\n')
