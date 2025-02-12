@@ -1,6 +1,8 @@
 ![Noodle banner](./.github/assets/noodle.png)
 
-# Noodle search
+# noodle search
+
+![GitHub deployments](https://img.shields.io/github/deployments/trsbenbob/noodle-search/production?style=flat&logo=vercel&logoColor=white&label=vercel)
 
 Nuxt 3 application providing meal suggestions and shortlisting, powered by [themealdb.com](https://themealdb.com).
 
