@@ -1,15 +1,30 @@
 <script setup lang="ts">
 import type { Meal } from '~/types'
 
-defineProps<{
+const props = defineProps<{
   meal: Meal
 }>()
+
+const shortlistStore = useShortlistStore()
+
+const isInShortlist = computed(() => shortlistStore.hasMealInShortlist(props.meal))
 </script>
 
 <template>
-  <div class="card bg-base-100 shadow-xl">
+  <div class="card bg-base-100 shadow-xl" :class="{ 'border-[3px] border-accent': isInShortlist }">
     <figure v-if="meal.thumb" class="relative">
       <img :src="meal.thumb" :alt="meal.name" class="skeleton rounded-none w-32 sm:w-auto aspect-[3/2] object-cover h-full flex-auto">
+
+      <div class="absolute left-1 bottom-1">
+        <button
+          class="border-0 btn btn-sm btn-circle text-white"
+          :class="{ 'bg-accent': isInShortlist }"
+          @click="shortlistStore.toggleShortlisted(meal)"
+        >
+          <Icon v-if="!isInShortlist" name="mdi:heart-plus-outline" size="20" />
+          <Icon v-else name="mdi:heart-minus" size="20" />
+        </button>
+      </div>
 
       <div v-if="meal.youtube" class="absolute right-1 bottom-1">
         <a :href="meal.youtube" target="_blank" class="border-0 btn btn-sm btn-circle bg-red-500 text-white">
