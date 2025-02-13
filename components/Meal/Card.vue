@@ -20,18 +20,18 @@ const isInShortlist = computed(() => shortlistStore.hasMealInShortlist(props.mea
       <!-- IconButton.vue? -->
       <div class="absolute left-1 bottom-1">
         <button
-          class="border-0 btn btn-sm btn-circle"
+          class="border-0 btn btn-circle"
           :class="isInShortlist ? 'btn-accent' : 'btn-neutral'"
           @click="shortlistStore.toggleShortlisted(meal)"
         >
-          <Icon v-if="!isInShortlist" name="mdi:heart-plus-outline" size="20" />
-          <Icon v-else name="mdi:heart-minus" size="20" />
+          <Icon v-if="!isInShortlist" name="mdi:heart-plus-outline" size="24" />
+          <Icon v-else name="mdi:heart-minus" size="24" />
         </button>
       </div>
 
       <div v-if="meal.youtube" class="absolute right-1 bottom-1">
-        <a :href="meal.youtube" target="_blank" class="border-0 btn btn-sm btn-circle btn-error text-white">
-          <Icon name="mdi:youtube" size="20" />
+        <a :href="meal.youtube" target="_blank" class="border-0 btn btn-circle btn-error text-white">
+          <Icon name="mdi:youtube" size="24" />
         </a>
       </div>
     </figure>

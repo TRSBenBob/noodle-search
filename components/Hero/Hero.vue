@@ -12,7 +12,7 @@ const mealStore = useMealStore()
 
         <!-- TODO: Use store state rather than checkbox value "hack" -->
         <label for="shortlist-drawer" class="ml-auto btn btn-accent btn-circle drawer-button">
-          <Icon name="mdi:heart" size="20" />
+          <Icon name="mdi:heart" size="24" />
         </label>
       </div>
 
