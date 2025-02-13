@@ -89,29 +89,18 @@ it('should parse ingredients with no measure', () => {
   ])
 })
 
-it('should exclude ingredient fields with no value', () => {
+it('should exclude ingredient fields with invalid values', () => {
+  // API response can contain null, empty string, or whitespace in ingredient fields
+  // These should be excluded
   const ingredients = {
     strIngredient1: 'Potatoes',
     strMeasure1: '1/2 lb',
     strIngredient2: null,
     strMeasure2: null,
-  }
-
-  const parsed = parseMeal({
-    ...ingredients,
-  } as unknown as ApiMeal)
-
-  expect(parsed.ingredients).toHaveLength(1)
-})
-
-it('should exclude ingredients with an empty string or string of whitespace', () => {
-  const ingredients = {
-    strIngredient1: 'Potatoes',
-    strMeasure1: '1/2 lb',
-    strIngredient2: '',
-    strMeasure2: '',
-    strIngredient3: ' ',
+    strIngredient3: '',
     strMeasure3: '',
+    strIngredient4: ' ',
+    strMeasure4: '',
   }
 
   const parsed = parseMeal({
