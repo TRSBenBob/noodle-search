@@ -103,3 +103,20 @@ it('should exclude ingredient fields with no value', () => {
 
   expect(parsed.ingredients).toHaveLength(1)
 })
+
+it('should exclude ingredients with an empty string or string of whitespace', () => {
+  const ingredients = {
+    strIngredient1: 'Potatoes',
+    strMeasure1: '1/2 lb',
+    strIngredient2: '',
+    strMeasure2: '',
+    strIngredient3: ' ',
+    strMeasure3: '',
+  }
+
+  const parsed = parseMeal({
+    ...ingredients,
+  } as unknown as ApiMeal)
+
+  expect(parsed.ingredients).toHaveLength(1)
+})
