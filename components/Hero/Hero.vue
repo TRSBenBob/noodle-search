@@ -21,6 +21,7 @@ const mealStore = useMealStore()
         <label class="input input-bordered w-full join-item flex items-center gap-2">
           <input
             v-model="mealStore.search"
+            role="search"
             type="search"
             class="grow"
             placeholder="What are you hungry for?"

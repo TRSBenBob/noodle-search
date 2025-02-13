@@ -12,7 +12,7 @@ const isInShortlist = computed(() => shortlistStore.hasMealInShortlist(props.mea
 
 <template>
   <!-- TODO: Split out Card component? CardImage, CardBody... -->
-  <div class="card bg-base-100 shadow-xl border-[3px] transition-colors duration-200" :class="isInShortlist ? 'border-accent' : 'border-accent/0'">
+  <div data-testid="meal-card" class="card bg-base-100 shadow-xl border-[3px] transition-colors duration-200" :class="isInShortlist ? 'border-accent' : 'border-accent/0'">
     <figure v-if="meal.thumb" class="relative">
       <img :src="meal.thumb" :alt="meal.name" class="skeleton rounded-none w-32 sm:w-auto aspect-[3/2] object-cover h-full flex-auto">
 

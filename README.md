@@ -35,3 +35,13 @@ Locally preview production build:
 ```bash
 pnpm preview
 ```
+
+## Tests
+
+Unit tests are provided by [vitest](https://vitest.dev/). E2E tests are provided by [Playwright](https://playwright.dev/).
+
+```bash
+pnpm test
+```
+
+E2E tests must be run with either `pnpm dev` or `pnpm preview` running.
