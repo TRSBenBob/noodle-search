@@ -4,8 +4,10 @@ export default function () {
   const suggestion = ref<string>()
 
   function updateSuggestion() {
-    const r = Math.floor(Math.random() * suggestions.length)
-    suggestion.value = suggestions.filter(s => s !== suggestion.value)[r]
+    const available = suggestions.filter(s => suggestion.value !== s)
+
+    const r = Math.floor(Math.random() * available.length)
+    suggestion.value = available[r]
   }
 
   updateSuggestion()
