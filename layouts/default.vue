@@ -1,9 +1,12 @@
 <template>
   <div class="drawer bg-base-200">
+    <!-- TODO: Use store state rather than checkbox value "hack" -->
     <input id="shortlist-drawer" type="checkbox" class="drawer-toggle">
+
     <div class="drawer-content">
       <slot />
     </div>
+
     <div class="drawer-side z-10">
       <label for="shortlist-drawer" aria-label="Close shortlist" class="drawer-overlay" />
 

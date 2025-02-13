@@ -25,7 +25,6 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    // The private keys which are only available server-side
     theMealDb: {
       apiBase: 'https://www.themealdb.com/api/json/v1/',
       apiKey: '1',

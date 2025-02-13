@@ -6,6 +6,8 @@ function parseInstructions(instructions: string) {
     .filter(Boolean)
 }
 
+// TODO: Reduce data returned from this function until it's used
+// `ingredients`, `instructions` are not used and contain a lot of redundant data
 export default function parseMeal(meal: ApiMeal) {
   const ingredients = []
 

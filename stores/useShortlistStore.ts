@@ -15,10 +15,6 @@ export default defineStore('shortlist', () => {
     shortlist.value = shortlist.value.filter(id => id !== meal.id)
   }
 
-  function clearShortlist() {
-    shortlist.value = []
-  }
-
   function toggleShortlisted(meal: Meal) {
     if (hasMealInShortlist(meal)) {
       removeFromShortlist(meal)
@@ -40,10 +36,12 @@ export default defineStore('shortlist', () => {
     addToShortlist,
     removeFromShortlist,
     toggleShortlisted,
-    clearShortlist,
     hasMealInShortlist,
   }
 }, {
+  // TODO: Should we use Nuxt's `cookie` storage here instead?
+  // We could do meal hydration on the serverside then rather than requiring a
+  // round-trip
   persist: {
     storage: piniaPluginPersistedstate.localStorage(),
     pick: ['shortlist'],

@@ -10,11 +10,13 @@ const mealStore = useMealStore()
           <HeroLogo />
         </h1>
 
+        <!-- TODO: Use store state rather than checkbox value "hack" -->
         <label for="shortlist-drawer" class="ml-auto btn btn-accent btn-circle drawer-button">
           <Icon name="mdi:heart" size="20" />
         </label>
       </div>
 
+      <!-- TODO: Refactor out components for clearer separation of concerns -->
       <form class="sm:join" @submit.prevent="mealStore.updateMeals">
         <label class="input input-bordered w-full join-item flex items-center gap-2">
           <input

@@ -8,8 +8,11 @@ const props = defineProps<{
 const shortlistStore = useShortlistStore()
 const mealStore = useMealStore()
 
+// Hydrate `meal` from api response
+// TODO: Batch this operation in the parent component
 const meal = await $fetch(`/api/meal/${props.id}`)
 
+// If the meal is not found, remove it from the shortlist
 if (meal === null) {
   shortlistStore.removeFromShortlist({ id: props.id } as Meal)
 }

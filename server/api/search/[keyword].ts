@@ -11,6 +11,8 @@ export default defineEventHandler(async (event) => {
 
   const result = await fetch<ApiResponse>(`/search.php?s=${keyword}`)
 
+  // Handle empty response with an empty array
+  // Frontend doesn't need to handle error explicitly
   if (!result.meals) {
     return []
   }

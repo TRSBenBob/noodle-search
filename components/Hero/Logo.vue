@@ -1,3 +1,4 @@
+<!-- TODO: Reduce reliance on web font by converting this to SVG -->
 <template>
   <span class="Logo inline-flex justify-center gap-2">
     <Icon name="hugeicons:noodles" />
