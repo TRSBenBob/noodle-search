@@ -2,7 +2,7 @@ export default function () {
   // TODO: Replace with actual food suggestions from themealdb
   const suggestions = ['chicken', 'beef', 'spaghetti', 'pasta', 'pizza', 'sushi', 'curry', 'tacos', 'burgers', 'salad']
 
-  const suggestion = ref<string>()
+  const suggestion = ref<string>('')
 
   function updateSuggestion() {
     // First pick only suggestions that are not the current suggestion
