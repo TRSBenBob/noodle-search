@@ -5,9 +5,15 @@ const mealStore = useMealStore()
 <template>
   <div class="sticky top-0 grid place-items-center self-end z-10 bg-base-200 p-4">
     <div class="text-center w-full max-w-md flex flex-col gap-4">
-      <h1 class="text-5xl font-bold">
-        <HeroLogo />
-      </h1>
+      <div class="flex">
+        <h1 class="text-5xl font-bold">
+          <HeroLogo />
+        </h1>
+
+        <label for="shortlist-drawer" class="ml-auto btn btn-accent btn-circle drawer-button">
+          <Icon name="mdi:heart" size="20" />
+        </label>
+      </div>
 
       <form class="sm:join" @submit.prevent="mealStore.updateMeals">
         <label class="input input-bordered w-full join-item flex items-center gap-2">

@@ -11,14 +11,14 @@ const isInShortlist = computed(() => shortlistStore.hasMealInShortlist(props.mea
 </script>
 
 <template>
-  <div class="card bg-base-100 shadow-xl" :class="{ 'border-[3px] border-accent': isInShortlist }">
+  <div class="card bg-base-100 shadow-xl border-[3px] transition-colors duration-200" :class="isInShortlist ? 'border-accent' : 'border-accent/0'">
     <figure v-if="meal.thumb" class="relative">
       <img :src="meal.thumb" :alt="meal.name" class="skeleton rounded-none w-32 sm:w-auto aspect-[3/2] object-cover h-full flex-auto">
 
       <div class="absolute left-1 bottom-1">
         <button
-          class="border-0 btn btn-sm btn-circle text-white"
-          :class="{ 'bg-accent': isInShortlist }"
+          class="border-0 btn btn-sm btn-circle"
+          :class="isInShortlist ? 'btn-accent' : 'btn-neutral'"
           @click="shortlistStore.toggleShortlisted(meal)"
         >
           <Icon v-if="!isInShortlist" name="mdi:heart-plus-outline" size="20" />
@@ -27,7 +27,7 @@ const isInShortlist = computed(() => shortlistStore.hasMealInShortlist(props.mea
       </div>
 
       <div v-if="meal.youtube" class="absolute right-1 bottom-1">
-        <a :href="meal.youtube" target="_blank" class="border-0 btn btn-sm btn-circle bg-red-500 text-white">
+        <a :href="meal.youtube" target="_blank" class="border-0 btn btn-sm btn-circle btn-error text-white">
           <Icon name="mdi:youtube" size="20" />
         </a>
       </div>

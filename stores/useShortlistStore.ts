@@ -2,6 +2,7 @@ import type { Meal } from '~/types'
 
 export default defineStore('shortlist', () => {
   const shortlist = ref<string[]>([])
+  const hasShortlistItems = computed(() => shortlist.value.length)
 
   function addToShortlist(meal: Meal) {
     if (shortlist.value.includes(meal.id))
@@ -34,6 +35,8 @@ export default defineStore('shortlist', () => {
   return {
     shortlist,
 
+    hasShortlistItems,
+
     addToShortlist,
     removeFromShortlist,
     toggleShortlisted,
@@ -43,5 +46,6 @@ export default defineStore('shortlist', () => {
 }, {
   persist: {
     storage: piniaPluginPersistedstate.localStorage(),
+    pick: ['shortlist'],
   },
 })

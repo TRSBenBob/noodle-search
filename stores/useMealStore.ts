@@ -30,6 +30,10 @@ export default defineStore('meals', () => {
     }
   }
 
+  function setMeals(forced: Meal[]) {
+    meals.value = forced
+  }
+
   return {
     search,
 
@@ -37,6 +41,8 @@ export default defineStore('meals', () => {
     error,
     meals,
     updateMeals,
+
+    setMeals,
 
     suggestion,
     updateSuggestion,
